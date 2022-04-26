@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Mail\ContactedMessage;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -32,6 +33,10 @@ Route::get('/', function () {
 });
 
 Route::post('contact', [ContactController::class, 'contact'])->name('contact');
+
+// Route::get('/test', function () {
+//     return new ContactedMessage('test@test.com', 'just testing');
+// });
 
 Route::middleware([
     'auth:sanctum',
