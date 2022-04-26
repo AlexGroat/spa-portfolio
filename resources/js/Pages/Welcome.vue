@@ -69,7 +69,9 @@
               mb-2
             "
             @click="contacting = true"
-            >Lets Chat</jet-button
+            >{{
+              $page.props.flash.contacted ? "Thanks" : "Lets chat"
+            }}</jet-button
           >
         </div>
       </div>
@@ -95,8 +97,8 @@
             mt-10
           "
           @click="contacting = true"
-          >Get in touch</jet-button
-        >
+          >{{ $page.props.flash.contacted ? "Thanks" : "Get in touch" }}
+        </jet-button>
 
         <div class="grid grid-cols-2">
           <div v-for="skill in skills">
@@ -126,7 +128,9 @@
             mt-2
           "
           @click="contacting = true"
-          >Know more</jet-button
+          >{{
+            $page.props.flash.contacted ? "Thanks" : "Know more"
+          }}</jet-button
         >
         <!-- from the full list of projects, we need to define which is the icon we resolve for -->
         <div class="mx-8" v-for="(project, index) in projects">
@@ -165,7 +169,15 @@
   away from the modal the value is set back to null and the modal 
   closes -->
   <jet-modal :show="contacting" closeable="true" @close="contacting = null">
-    <div class="bg-gray-50 shadow-2xl p-6 mx-10">
+    <div
+      class="bg-green-400 shadow-2xl p-8 text-center font-bold"
+      v-if="$page.props.flash.contacted"
+    >
+      <p class="text-8xl m-5">👍</p>
+      <p class="text-5xl font-bold m-2">Thanks!</p>
+      <p class="text-xl m-2">I will get back to you soon.</p>
+    </div>
+    <div class="bg-gray-50 shadow-2xl p-6 mx-10" v-else>
       <p class="text-gray-600 text-2xl font-extrabold text-center">
         Please fill in some details
       </p>
