@@ -99,10 +99,10 @@
       <div class="flex justify-center mt-10">
         <jet-button
           class="
-            bg-purple-200
+            bg-purple-300
             rounded
             font-bold
-            text-sm text-gray-800
+            text-sm text-gray-700
             hover:bg-purple-400
             mt-2
           "
