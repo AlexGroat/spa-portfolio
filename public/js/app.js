@@ -26450,9 +26450,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _Jetstream_ApplicationMark__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/ApplicationMark */ "./resources/js/Jetstream/ApplicationMark.vue");
 /* harmony import */ var _Jetstream_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/Button */ "./resources/js/Jetstream/Button.vue");
-/* harmony import */ var _Components_Section_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Section.vue */ "./resources/js/Components/Section.vue");
-/* harmony import */ var _Components_Skills_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Skills.vue */ "./resources/js/Components/Skills.vue");
-/* harmony import */ var _Components_Projects_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Projects.vue */ "./resources/js/Components/Projects.vue");
+/* harmony import */ var _Jetstream_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/Modal */ "./resources/js/Jetstream/Modal.vue");
+/* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _Components_Section_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Section.vue */ "./resources/js/Components/Section.vue");
+/* harmony import */ var _Components_Skills_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Components/Skills.vue */ "./resources/js/Components/Skills.vue");
+/* harmony import */ var _Components_Projects_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/Components/Projects.vue */ "./resources/js/Components/Projects.vue");
+
+
 
 
 
@@ -26464,11 +26468,13 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head,
     Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link,
-    Section: _Components_Section_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Section: _Components_Section_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     JetApplicationMark: _Jetstream_ApplicationMark__WEBPACK_IMPORTED_MODULE_2__["default"],
     JetButton: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Skill: _Components_Skills_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    Project: _Components_Projects_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    JetModal: _Jetstream_Modal__WEBPACK_IMPORTED_MODULE_4__["default"],
+    JetInput: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Skill: _Components_Skills_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    Project: _Components_Projects_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   props: {
     canLogin: Boolean,
@@ -26485,6 +26491,12 @@ __webpack_require__.r(__webpack_exports__);
         return __webpack_require__("./node_modules/@heroicons/vue/solid lazy recursive ^\\.\\/.*Icon\\.js$")("./" + _this.projects[index].icon_name + "Icon.js");
       });
     }
+  },
+  // not static properties
+  data: function data() {
+    return {
+      contacting: null
+    };
   }
 }));
 
@@ -30873,6 +30885,30 @@ var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("StackOverflow");
 
+var _hoisted_24 = {
+  "class": "bg-gray-50 shadow-2xl p-6 mx-10"
+};
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-gray-600 text-2xl font-extrabold text-center"
+}, " Please fill in some details ", -1
+/* HOISTED */
+);
+
+var _hoisted_26 = {
+  "class": "flex flex-col itemrs-center p-16"
+};
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  "class": "px-5 py-3 w-96 border border-gray-600 rounded ml-4 mt-5",
+  name: "message",
+  placeholder: "Details"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Get in touch");
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
@@ -30887,6 +30923,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Skill = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Skill");
 
   var _component_Project = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Project");
+
+  var _component_jet_input = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-input");
+
+  var _component_jet_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-modal");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Welcome"
@@ -30948,7 +30988,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-        "class": "bg-green-400 rounded font-bold text-sm text-gray-800 hover:bg-green-800 mb-2"
+        "class": "bg-green-400 rounded font-bold text-sm text-gray-800 hover:bg-green-800 mb-2",
+        onClick: _cache[0] || (_cache[0] = function ($event) {
+          return _ctx.contacting = true;
+        })
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_8];
@@ -30967,7 +31010,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-        "class": "bg-indigo-800 rounded font-bold text-sm text-white-800 hover:bg-indigo-400 mt-2 flex justify-center mt-10"
+        "class": "bg-indigo-800 rounded font-bold text-sm text-white-800 hover:bg-indigo-400 mt-2 flex justify-center mt-10",
+        onClick: _cache[1] || (_cache[1] = function ($event) {
+          return _ctx.contacting = true;
+        })
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_12];
@@ -31003,7 +31049,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-        "class": "bg-purple-300 rounded font-bold text-sm text-gray-700 hover:bg-purple-400 mt-2"
+        "class": "bg-purple-300 rounded font-bold text-sm text-gray-700 hover:bg-purple-400 mt-2",
+        onClick: _cache[2] || (_cache[2] = function ($event) {
+          return _ctx.contacting = true;
+        })
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_17];
@@ -31072,7 +31121,36 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])], 64
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("  on click of jetstream button the value of the contacting \n  modal is set to true which displays the jet modal, upon clicking\n  away from the modal the value is set back to null and the modal \n  closes "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_modal, {
+    show: _ctx.contacting,
+    closeable: "true",
+    onClose: _cache[3] || (_cache[3] = function ($event) {
+      return _ctx.contacting = null;
+    })
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
+        "class": "px-5 py-3 w-96 border border-gray-600 rounded ml-4",
+        type: "email",
+        name: "email",
+        placeholder: "Email"
+      }), _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
+        "class": "px-5 py-3 mt-5 w-96 bg-purple-400 justify-center rounded-xl text-sm ml-4"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_28];
+        }),
+        _: 1
+        /* STABLE */
+
+      })])])];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["show"])], 64
   /* STABLE_FRAGMENT */
   );
 }

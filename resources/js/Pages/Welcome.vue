@@ -68,6 +68,7 @@
               hover:bg-green-800
               mb-2
             "
+            @click="contacting = true"
             >Lets Chat</jet-button
           >
         </div>
@@ -93,6 +94,7 @@
             justify-center
             mt-10
           "
+          @click="contacting = true"
           >Get in touch</jet-button
         >
 
@@ -123,6 +125,7 @@
             hover:bg-purple-400
             mt-2
           "
+          @click="contacting = true"
           >Know more</jet-button
         >
         <!-- from the full list of projects, we need to define which is the icon we resolve for -->
@@ -157,6 +160,47 @@
       </div>
     </Section>
   </div>
+  <!--  on click of jetstream button the value of the contacting 
+  modal is set to true which displays the jet modal, upon clicking
+  away from the modal the value is set back to null and the modal 
+  closes -->
+  <jet-modal :show="contacting" closeable="true" @close="contacting = null">
+    <div class="bg-gray-50 shadow-2xl p-6 mx-10">
+      <p class="text-gray-600 text-2xl font-extrabold text-center">
+        Please fill in some details
+      </p>
+
+      <form class="flex flex-col itemrs-center p-16">
+        <jet-input
+          class="px-5 py-3 w-96 border border-gray-600 rounded ml-4"
+          type="email"
+          name="email"
+          placeholder="Email"
+        ></jet-input>
+
+        <textarea
+          class="px-5 py-3 w-96 border border-gray-600 rounded ml-4 mt-5"
+          name="message"
+          placeholder="Details"
+        ></textarea>
+
+        <jet-button
+          class="
+            px-5
+            py-3
+            mt-5
+            w-96
+            bg-purple-400
+            justify-center
+            rounded-xl
+            text-sm
+            ml-4
+          "
+          >Get in touch</jet-button
+        >
+      </form>
+    </div>
+  </jet-modal>
 </template>
 <script>
 import { defineAsyncComponent, defineComponent } from "vue";
@@ -164,6 +208,8 @@ import { Head, Link } from "@inertiajs/inertia-vue3";
 
 import JetApplicationMark from "@/Jetstream/ApplicationMark";
 import JetButton from "@/Jetstream/Button";
+import JetModal from "@/Jetstream/Modal";
+import JetInput from "@/Jetstream/Input";
 
 import Section from "@/Components/Section.vue";
 import Skill from "@/Components/Skills.vue";
@@ -176,6 +222,8 @@ export default defineComponent({
     Section,
     JetApplicationMark,
     JetButton,
+    JetModal,
+    JetInput,
     Skill,
     Project,
   },
@@ -197,10 +245,17 @@ export default defineComponent({
       );
     },
   },
+
+  // not static properties
+  data() {
+    return {
+      contacting: null,
+    };
+  },
 });
 </script>
 
-// defineAsyncComponent impots a hero icons solid icon which dynamically changes the name from the customization.json file
+// defineAsyncComponent imports a hero icons solid icon which dynamically changes the name from the customization.json file
 
 // camel case jett application mark from jetstream
 
