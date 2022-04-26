@@ -72,14 +72,15 @@
           >
         </div>
       </div>
-      <div class="animate-pulse mt-3 text-gray-300 text-center text-9xl">
+      <div class="animate-bounce mt-3 text-gray-300 text-center text-9xl">
         <a href="#skills">&#8675;</a>
       </div>
     </Section>
 
     <Section id="skills" class="bg-gray-200 text-gray-800 h-screen">
-      <h2 class="text-6xl font-bold pt-3">Skills</h2>
-      <div class="flex justify-center mt-10">
+      <div class="h-2/3 flex flex-wrap content-between pb-36">
+        <h2 class="text-6xl font-bold pt-3 mr-8">Skills</h2>
+
         <jet-button
           class="
             bg-indigo-800
@@ -88,13 +89,29 @@
             text-sm text-white-800
             hover:bg-indigo-400
             mt-2
+            flex
+            justify-center
+            mt-10
           "
           >Get in touch</jet-button
         >
+
+        <div class="grid grid-cols-2">
+          <div v-for="skill in skills">
+            <!-- send the background as a computed property -->
+            <Skill :background="skill.color">
+              {{ skill.name }}
+            </Skill>
+          </div>
+        </div>
+      </div>
+
+      <div class="animate-bounce mt-3 text-gray-800 text-center text-9xl">
+        <a href="#projects">&#8675;</a>
       </div>
     </Section>
 
-    <Section class="bg-gray-600 text-gray-200 h-screen">
+    <Section id="projects" class="bg-gray-600 text-gray-200 h-screen">
       <h2 class="text-6xl font-bold pt-3">Projects</h2>
       <div class="flex justify-center mt-10">
         <jet-button
@@ -125,6 +142,7 @@ import { Head, Link } from "@inertiajs/inertia-vue3";
 import JetApplicationMark from "@/Jetstream/ApplicationMark";
 import JetButton from "@/Jetstream/Button";
 import Section from "@/Components/Section.vue";
+import Skill from "@/Components/Skills.vue";
 
 export default defineComponent({
   components: {
@@ -133,11 +151,13 @@ export default defineComponent({
     Section,
     JetApplicationMark,
     JetButton,
+    Skill,
   },
 
   props: {
     canLogin: Boolean,
     canRegister: Boolean,
+    skills: Object,
   },
 });
 </script>

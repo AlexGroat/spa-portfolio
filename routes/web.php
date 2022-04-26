@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Skill;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,15 @@ use Inertia\Inertia;
 |
 */
 
+/* from the backend we are resolving the full list of skills, sending
+skills from inertia to the front end in the welcome.vue props through
+a property called skills */
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
+        'skills' => Skill::all(),
     ]);
 });
 
