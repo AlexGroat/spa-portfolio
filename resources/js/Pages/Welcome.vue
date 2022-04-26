@@ -131,7 +131,9 @@
     <Section class="flex justify-between bg-gray-800 text-gray-300 text-xl">
       <p>&copy; AlexGroat. All Rights Reserved.</p>
       <div class="flex justify-evenly items-center">
-        Github Twitter StackOverflow
+        <Link class="border-b pb-2 px-2 hover:text-gray-500" href="https://github.com/AlexGroat">Github</Link>
+        <Link class="border-b pb-2 px-2 hover:text-gray-500" href="">Twitter</Link>
+        <Link class="border-b pb-2 px-2 hover:text-gray-500" href="">StackOverflow</Link>
       </div>
     </Section>
   </div>
