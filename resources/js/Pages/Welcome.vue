@@ -170,18 +170,21 @@
         Please fill in some details
       </p>
 
-      <form class="flex flex-col itemrs-center p-16">
+      <form @submit.prevent="submit" class="flex flex-col itemrs-center p-16">
         <jet-input
           class="px-5 py-3 w-96 border border-gray-600 rounded ml-4"
           type="email"
           name="email"
           placeholder="Email"
+          v-model="form.email"
         ></jet-input>
+        <!-- form property declared in data() -->
 
         <textarea
           class="px-5 py-3 w-96 border border-gray-600 rounded ml-4 mt-5"
           name="message"
           placeholder="Details"
+          v-model="form.message"
         ></textarea>
 
         <jet-button
@@ -244,12 +247,21 @@ export default defineComponent({
         )
       );
     },
+    // submit method called on @submit.prevent="submit"
+    submit() {
+      // submit a post request to the contact route
+      this.form.post(route("contact"));
+    },
   },
 
   // not static properties
   data() {
     return {
       contacting: null,
+      form: this.$inertia.form({
+        email: "",
+        message: "",
+      }),
     };
   },
 });
