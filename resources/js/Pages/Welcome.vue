@@ -178,6 +178,7 @@
           placeholder="Email"
           v-model="form.email"
         ></jet-input>
+        <jet-input-error :message="form.errors.email" />
         <!-- form property declared in data() -->
 
         <textarea
@@ -186,6 +187,7 @@
           placeholder="Details"
           v-model="form.message"
         ></textarea>
+        <jet-input-error :message="form.errors.message" />
 
         <jet-button
           class="
@@ -199,8 +201,13 @@
             text-sm
             ml-4
           "
-          >Get in touch</jet-button
-        >
+          :disabled="form.processing"
+          ><span class="animate-spin mr-1" v-show="form.processing"
+            >&#9696;</span
+          >
+
+          <span v-show="!form.processing">Get in touch</span>
+        </jet-button>
       </form>
     </div>
   </jet-modal>
@@ -213,6 +220,7 @@ import JetApplicationMark from "@/Jetstream/ApplicationMark";
 import JetButton from "@/Jetstream/Button";
 import JetModal from "@/Jetstream/Modal";
 import JetInput from "@/Jetstream/Input";
+import JetInputError from "@/Jetstream/InputError";
 
 import Section from "@/Components/Section.vue";
 import Skill from "@/Components/Skills.vue";
@@ -227,6 +235,7 @@ export default defineComponent({
     JetButton,
     JetModal,
     JetInput,
+    JetInputError,
     Skill,
     Project,
   },
