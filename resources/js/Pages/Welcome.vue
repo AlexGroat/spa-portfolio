@@ -125,13 +125,16 @@
           "
           >Know more</jet-button
         >
-        <div class="mx-8" v-for="project in projects">
+        <!-- from the full list of projects, we need to define which is the icon we resolve for -->
+        <div class="mx-8" v-for="(project, index) in projects">
           <Project
             :title="project.title"
             :description="project.description"
             :color="project.color"
           >
-            <BeakerIcon />
+            <!-- dynamically name this component, receive the index of the project that we are looping through 
+            component name is resolved by the function, function is called for every loop over projects -->
+            <component :is="componentName(index)"></component>
           </Project>
         </div>
       </div>
@@ -156,7 +159,7 @@
   </div>
 </template>
 <script>
-import { defineComponent } from "vue";
+import { defineAsyncComponent, defineComponent } from "vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
 
 import JetApplicationMark from "@/Jetstream/ApplicationMark";
@@ -165,8 +168,6 @@ import JetButton from "@/Jetstream/Button";
 import Section from "@/Components/Section.vue";
 import Skill from "@/Components/Skills.vue";
 import Project from "@/Components/Projects.vue";
-
-import { BeakerIcon } from '@heroicons/vue/solid'; 
 
 export default defineComponent({
   components: {
@@ -177,7 +178,6 @@ export default defineComponent({
     JetButton,
     Skill,
     Project,
-    BeakerIcon
   },
 
   props: {
@@ -186,8 +186,21 @@ export default defineComponent({
     skills: Object,
     projects: Object,
   },
+
+  methods: {
+    componentName(index) {
+      // async components let us create a component in real time so we can see something while the async component is loading
+      return defineAsyncComponent(() =>
+        import(
+          "@heroicons/vue/solid/" + this.projects[index].icon_name + "Icon.js"
+        )
+      );
+    },
+  },
 });
 </script>
+
+// defineAsyncComponent impots a hero icons solid icon which dynamically changes the name from the customization.json file
 
 // camel case jett application mark from jetstream
 

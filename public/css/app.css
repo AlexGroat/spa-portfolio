@@ -972,13 +972,13 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
 .mx-10 {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
+}
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 .mx-8 {
   margin-left: 2rem;
@@ -1596,13 +1596,13 @@ select {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
-.px-72 {
-  padding-left: 18rem;
-  padding-right: 18rem;
-}
 .px-44 {
   padding-left: 11rem;
   padding-right: 11rem;
+}
+.px-72 {
+  padding-left: 18rem;
+  padding-right: 18rem;
 }
 .pt-6 {
   padding-top: 1.5rem;
@@ -1688,6 +1688,10 @@ select {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
 .text-9xl {
   font-size: 8rem;
   line-height: 1;
@@ -1695,10 +1699,6 @@ select {
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
-}
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 .font-medium {
   font-weight: 500;
