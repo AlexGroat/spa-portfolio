@@ -113,7 +113,7 @@
 
     <Section id="projects" class="bg-gray-600 text-gray-200 h-screen">
       <h2 class="text-6xl font-bold pt-3">Projects</h2>
-      <div class="flex justify-center mt-10">
+      <div class="flex flex-wrap justify-center mt-10">
         <jet-button
           class="
             bg-purple-300
@@ -125,15 +125,32 @@
           "
           >Know more</jet-button
         >
+        <div class="mx-8" v-for="project in projects">
+          <Project
+            :title="project.title"
+            :description="project.description"
+            :color="project.color"
+          >
+            <BeakerIcon />
+          </Project>
+        </div>
       </div>
     </Section>
 
     <Section class="flex justify-between bg-gray-800 text-gray-300 text-xl">
       <p>&copy; AlexGroat. All Rights Reserved.</p>
       <div class="flex justify-evenly items-center">
-        <Link class="border-b pb-2 px-2 hover:text-gray-500" href="https://github.com/AlexGroat">Github</Link>
-        <Link class="border-b pb-2 px-2 hover:text-gray-500" href="">Twitter</Link>
-        <Link class="border-b pb-2 px-2 hover:text-gray-500" href="">StackOverflow</Link>
+        <Link
+          class="border-b pb-2 px-2 hover:text-gray-500"
+          href="https://github.com/AlexGroat"
+          >Github</Link
+        >
+        <Link class="border-b pb-2 px-2 hover:text-gray-500" href=""
+          >Twitter</Link
+        >
+        <Link class="border-b pb-2 px-2 hover:text-gray-500" href=""
+          >StackOverflow</Link
+        >
       </div>
     </Section>
   </div>
@@ -141,10 +158,15 @@
 <script>
 import { defineComponent } from "vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
+
 import JetApplicationMark from "@/Jetstream/ApplicationMark";
 import JetButton from "@/Jetstream/Button";
+
 import Section from "@/Components/Section.vue";
 import Skill from "@/Components/Skills.vue";
+import Project from "@/Components/Projects.vue";
+
+import { BeakerIcon } from '@heroicons/vue/solid'; 
 
 export default defineComponent({
   components: {
@@ -154,12 +176,15 @@ export default defineComponent({
     JetApplicationMark,
     JetButton,
     Skill,
+    Project,
+    BeakerIcon
   },
 
   props: {
     canLogin: Boolean,
     canRegister: Boolean,
     skills: Object,
+    projects: Object,
   },
 });
 </script>
