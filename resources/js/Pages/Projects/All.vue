@@ -17,7 +17,11 @@
             hover:bg-blue-200
             mr-2
           "
-          @click="showModal = true"
+          @click="
+            showModal = true;
+            method = 'post';
+            action = route('projects.store');
+          "
           >Add New +</jet-button
         >
         <jet-modal :show="showModal" closeable="true" @close="showModal = null">
@@ -121,6 +125,15 @@
                     hover:bg-indigo-100
                     mr-2
                   "
+                  @click="
+                    showModal = true;
+                    method = 'put';
+                    action = route('projects.update', [project.id]);
+                    form.title = project.title;
+                    form.description = project.description;
+                    form.color = form.color;
+                    form.icon_name = form.icon_name;
+                  "
                   >Edit</jet-button
                 >
                 <jet-button
@@ -170,7 +183,7 @@ export default defineComponent({
   props: {
     projects: Object,
     icons: Object,
-    colors: Object
+    colors: Object,
   },
 
   methods: {
@@ -184,7 +197,7 @@ export default defineComponent({
     },
     submit() {
       // submit a post request to the skills route and the store method in the controller
-      this.form.submit("post", route("projects.store"), {
+      this.form.submit(this.method, this.action, {
         onSuccess: () => {
           //   on form submit reset the fields
           this.form.reset("title");
@@ -200,6 +213,8 @@ export default defineComponent({
   data() {
     return {
       showModal: null,
+      method: null,
+      action: null,
       form: this.$inertia.form({
         title: "",
         description: "",

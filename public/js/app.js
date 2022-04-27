@@ -26411,7 +26411,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       // submit a post request to the skills route and the store method in the controller
-      this.form.submit("post", route("projects.store"), {
+      this.form.submit(this.method, this.action, {
         onSuccess: function onSuccess() {
           //   on form submit reset the fields
           _this2.form.reset("title");
@@ -26430,6 +26430,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       showModal: null,
+      method: null,
+      action: null,
       form: this.$inertia.form({
         title: "",
         description: "",
@@ -26481,8 +26483,8 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      // submit a post request to the skills route and the store method in the controller
-      this.form.submit("post", route("skills.store"), {
+      // access through this specific component
+      this.form.submit(this.method, this.action, {
         onSuccess: function onSuccess() {
           //   on form submit reset the fields
           _this.form.reset("name");
@@ -26498,6 +26500,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       showModal: null,
+      method: null,
+      action: null,
       form: this.$inertia.form({
         name: "",
         color: ""
@@ -30970,7 +30974,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
         "class": "p-3 border-2 border-blue-500 text-blue-500 bg-blue-50 hover:bg-blue-200 mr-2",
         onClick: _cache[0] || (_cache[0] = function ($event) {
-          return _ctx.showModal = true;
+          _ctx.showModal = true;
+          _ctx.method = 'post';
+          _ctx.action = _ctx.route('projects.store');
         })
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -31095,15 +31101,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(_ctx.componentName(index))))], 2
         /* CLASS */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-          "class": "border border-indigo-500 text-indigo-500 bg-indigo-50 hover:bg-indigo-100 mr-2"
+          "class": "border border-indigo-500 text-indigo-500 bg-indigo-50 hover:bg-indigo-100 mr-2",
+          onClick: function onClick($event) {
+            _ctx.showModal = true;
+            _ctx.method = 'put';
+            _ctx.action = _ctx.route('projects.update', [project.id]);
+            _ctx.form.title = project.title;
+            _ctx.form.description = project.description;
+            _ctx.form.color = _ctx.form.color;
+            _ctx.form.icon_name = _ctx.form.icon_name;
+          }
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [_hoisted_19];
           }),
-          _: 1
-          /* STABLE */
+          _: 2
+          /* DYNAMIC */
 
-        }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
           "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2"
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -31225,7 +31242,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
         "class": "p-3 border-2 border-blue-500 text-blue-500 bg-blue-50 hover:bg-blue-200 mr-2",
         onClick: _cache[0] || (_cache[0] = function ($event) {
-          return _ctx.showModal = true;
+          _ctx.showModal = true;
+          _ctx.method = 'post';
+          _ctx.action = _ctx.route('skills.store');
         })
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
