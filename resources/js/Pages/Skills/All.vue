@@ -114,6 +114,11 @@
                     hover:bg-red-100
                     mr-2
                   "
+                  @click="
+                    method = 'delete';
+                    action = route('skills.destroy', [skill.id]);
+                    submit();
+                  "
                   >Delete</jet-button
                 >
               </td>

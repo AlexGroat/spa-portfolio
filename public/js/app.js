@@ -31121,15 +31121,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, 1032
         /* PROPS, DYNAMIC_SLOTS */
         , ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-          "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2"
+          "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2",
+          onClick: function onClick($event) {
+            _ctx.method = 'delete';
+            _ctx.action = _ctx.route('projects.destroy', [project.id]);
+
+            _ctx.submit();
+          }
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [_hoisted_20];
           }),
-          _: 1
-          /* STABLE */
+          _: 2
+          /* DYNAMIC */
 
-        })])])]);
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["onClick"])])])]);
       }), 256
       /* UNKEYED_FRAGMENT */
       ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, " There are no projects yet. Create one! "))])])];
@@ -31353,15 +31361,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, 1032
         /* PROPS, DYNAMIC_SLOTS */
         , ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-          "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2"
+          "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2",
+          onClick: function onClick($event) {
+            _ctx.method = 'delete';
+            _ctx.action = _ctx.route('skills.destroy', [skill.id]);
+
+            _ctx.submit();
+          }
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [_hoisted_16];
           }),
-          _: 1
-          /* STABLE */
+          _: 2
+          /* DYNAMIC */
 
-        })])])]);
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["onClick"])])])]);
       }), 256
       /* UNKEYED_FRAGMENT */
       ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, " There are no skills yet. Create one! "))])])];

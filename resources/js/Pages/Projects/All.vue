@@ -144,6 +144,11 @@
                     hover:bg-red-100
                     mr-2
                   "
+                  @click="
+                    method = 'delete';
+                    action = route('projects.destroy', [project.id]);
+                    submit();
+                  "
                   >Delete</jet-button
                 >
               </td>
