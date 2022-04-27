@@ -101,7 +101,7 @@
         </jet-button>
 
         <div class="grid grid-cols-2">
-          <div v-for="skill in skills">
+          <div v-for="skill in skills.slice(0, 10)">
             <!-- send the background as a computed property -->
             <Skill :background="skill.color">
               {{ skill.name }}

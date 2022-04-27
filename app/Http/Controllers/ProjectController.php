@@ -101,6 +101,7 @@ class ProjectController extends Controller
             'title' => [
                 'required',
                 'max:255',
+                // ignore the current project that we are updating
                 Rule::unique(Project::class)->ignore($project->id)
             ],
             'description' => [
