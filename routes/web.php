@@ -30,7 +30,7 @@ Route::get('/', function () {
         'skills' => Skill::all(),
         'projects' => Project::all(),
     ]);
-});
+})->name('home');
 
 Route::post('contact', [ContactController::class, 'contact'])->name('contact');
 
@@ -38,12 +38,4 @@ Route::post('contact', [ContactController::class, 'contact'])->name('contact');
 //     return new ContactedMessage('test@test.com', 'just testing');
 // });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-});
+

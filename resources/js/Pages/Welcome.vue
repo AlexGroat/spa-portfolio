@@ -133,7 +133,7 @@
           }}</jet-button
         >
         <!-- from the full list of projects, we need to define which is the icon we resolve for -->
-        <div class="mx-8" v-for="(project, index) in projects">
+        <div class="mx-8" v-for="(project, index) in projects.slice(0, 5)">
           <Project
             :title="project.title"
             :description="project.description"
