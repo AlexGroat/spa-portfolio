@@ -156,7 +156,7 @@ export default defineComponent({
 
   methods: {
     submit() {
-      // access through this specific component
+      // access through this specific method and action
       this.form.submit(this.method, this.action, {
         onSuccess: () => {
           //   on form submit reset the fields

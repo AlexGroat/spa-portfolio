@@ -26483,7 +26483,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      // access through this specific component
+      // access through this specific method and action
       this.form.submit(this.method, this.action, {
         onSuccess: function onSuccess() {
           //   on form submit reset the fields
