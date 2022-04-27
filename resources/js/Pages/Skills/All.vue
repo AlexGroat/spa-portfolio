@@ -93,6 +93,13 @@
                     hover:bg-indigo-100
                     mr-2
                   "
+                  @click="
+                    showModal = true;
+                    method = 'put';
+                    action = route('skills.update', [skill.id]);
+                    form.name = skill.name;
+                    form.color = skill.color;
+                  "
                   >Edit</jet-button
                 >
                 <jet-button

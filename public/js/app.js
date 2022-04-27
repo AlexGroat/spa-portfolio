@@ -31316,15 +31316,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(skill.color), 1
         /* TEXT */
         )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-          "class": "border border-indigo-500 text-indigo-500 bg-indigo-50 hover:bg-indigo-100 mr-2"
+          "class": "border border-indigo-500 text-indigo-500 bg-indigo-50 hover:bg-indigo-100 mr-2",
+          onClick: function onClick($event) {
+            _ctx.showModal = true;
+            _ctx.method = 'put';
+            _ctx.action = _ctx.route('skills.update', [skill.id]);
+            _ctx.form.name = skill.name;
+            _ctx.form.color = skill.color;
+          }
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [_hoisted_15];
           }),
-          _: 1
-          /* STABLE */
+          _: 2
+          /* DYNAMIC */
 
-        }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
           "class": "border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 mr-2"
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
